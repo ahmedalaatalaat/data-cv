@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block css %}
+body {
+    background-color:#000000;
+}
+{% endblock css %}
+{% block content %}
+<div class="container-fluid" style="margin-top:5vh">
+    <div class="row">
+        <div class="col-4" style="display: flex;justify-content: space-around;flex-direction: column;">
+            
+            <div class="row">
+                <div class="col-3 w-70">
+                    <a target="_blank" href="https://github.com/ahmedalaatalaat/netflix-titles-analysis" style="color:#de1500"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <div class="col-3 w-70">
+                    <a target="_blank" href="https://www.facebook.com/ahmed.alaa.talaat.elkady" style="color:#de1500"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+                <div class="col-3 w-70">
+                    <a href="mailto:ahmedalaatalaat@gmail.com" style="color:#de1500"><i class="fa-brands fa-google"></i></a>
+                </div>
+                <div class="col-3 w-70">
+                    <a href="tel:+201025641555" style="color:#de1500"><i class="fa-solid fa-phone"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 text-center">
+            <img src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-logo-red-black-png.png"
+                class="img-fluid" width="500" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">{{total_titles_by_country|safe}}</div>
+        <div class="col-4">{{rating_distribution|safe}}</div>
+        <div class="col-4">{{movies_tv_distribution|safe}}</div>
+    </div>
+    <div class="row">
+        <div class="col-6">{{top_10_genres|safe}}</div>
+        <div class="col-6">{{total_titles_by_years|safe}}</div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,70 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid" style="margin-top:15vh">
+    <form method="GET">
+        <div class="row">
+            <div class="col-3" style="position: fixed;top: 15%;">
+                <div class="row mb-2 ml-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"> <b>Data Filters:</b></h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><small>Please Check the project github for more deep analytics
+                                and information.</small></h6>
+                            <div>
+                                <label class="mb-0"><b>Select Genre:</b></label>
+                                <select class="form-control select2-with-label-single" required name="genre"
+                                    onchange="this.form.submit()">
+                                    <option value=""></option>
+                                    {% for genre in genres %}
+                                    <option value="{{genre.name}}" {% if genre.name == request.GET.genre %}selected{% endif %}>{{genre.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row w-100 ml-3">
+                    <div class="card col-9">
+                        <div class="card-body">
+                            <div>
+                                <div class="row">
+                                    <div class="col-3 w-100">
+                                        <a target="_blank" href="https://github.com/ahmedalaatalaat/arabic_books_data_analysis" style="color:black"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                    <div class="col-3 w-100">
+                                        <a target="_blank" href="https://www.facebook.com/ahmed.alaa.talaat.elkady" style="color:black"><i class="fa-brands fa-facebook"></i></a>
+                                    </div>
+                                    <div class="col-3 w-100">
+                                        <a href="mailto:ahmedalaatalaat@gmail.com" style="color:black"><i class="fa-brands fa-google"></i></a>
+                                    </div>
+                                    <div class="col-3 w-100">
+                                        <a href="tel:+201025641555" style="color:black"><i class="fa-solid fa-phone"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9 offset-3">
+                <div class="row">
+                    <div class="col-12">{{top_15_authors|safe}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-6">{{authors_with_most_to_read_books|safe}}</div>
+                    <div class="col-6">{{authors_with_most_currently_reading_books|safe}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-6">{{top_10_translators|safe}}</div>
+                    <div class="col-6">{{authors_with_most_followers|safe}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">{{authors_with_most_books|safe}}</div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

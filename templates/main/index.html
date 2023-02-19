@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-12" style="position: relative;" data-aos="fade-up" data-aos-delay="200">
+            <img src="{% static 'main/images/undraw_investing_7u74.svg' %}" alt="Image" class="img-fluid img-absolute">
+            <div class="row mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-6 mr-auto">
+                    <h1>Welcome To My Data Projects Site</h1>
+                    <p class="mb-5">You can check one of my projects from the project tab or if you feel
+                        lucky click on random project.</p>
+                    <div>
+                        <a href="#" class="btn btn-primary mr-2 mb-2">Random Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

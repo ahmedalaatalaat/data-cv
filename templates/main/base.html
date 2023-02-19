@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ahmed El-kady Projects</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static 'main/images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'main/fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/icons/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/js/select2/css/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <style>
+    {% block css %}{% endblock css %}
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <div id="overlayer"></div>
+    <div class="loader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="site-wrap" id="home-section">
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-6 col-md-3 col-xl-4  d-block">
+                        <h1 class="mb-0 site-logo"><a href="{% url 'index' %}" class="text-black h2 mb-0">
+                                <img src="{% static 'main/images/logo.png' %}" width="250"></a></h1>
+                    </div>
+                    <div class="col-12 col-md-9 col-xl-8 main-menu">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block ml-0 pl-0">
+                                <li><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+                                <li class="has-children">
+                                    <a href="#about-section" class="nav-link">Projects</a>
+                                    <ul class="dropdown arrow-top">
+                                        <li class="has-children">
+                                            <a href="#" class="nav-link">Arabic Books</a>
+                                            <ul class="dropdown">
+                                                <li><a href="{% url 'books_project:books_perspective' %}">Books Perspective</a></li>
+                                                <li><a href="{% url 'books_project:authors_perspective' %}">Authors Perspective</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{% url 'jobs_project:jobs' %}">Jobs In Egypt</a></li>
+                                        <li><a href="{% url 'netflix_project:netflix_titles' %}">Netflix Titles</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="https://github.com/ahmedalaatalaat?tab=repositories"
+                                        class="nav-link" target="_blank">Github</a></li>
+                                <li><a href="#contact-section" class="nav-link">Contacts</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-6 col-md-9 d-inline-block d-lg-none ml-md-0"><a href="#"
+                            class="site-menu-toggle js-menu-toggle text-black float-right"><span
+                                class="icon-menu h3"></span></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="site-blocks-cover" style="overflow-x: hidden;">
+                {% block content %}{% endblock content %}
+        </div>
+    </div>
+    <script src="{% static 'main/js/jquery-3.3.1.min.js' %}"></scrip>
+    <script src="{% static 'main/js/popper.min.js' %}"></script>
+    <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/js/aos.js' %}"></script>
+    <script src="{% static 'main/js/select2/js/select2.full.min.js' %}"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid" style="margin-top:15vh">
+    <form method="GET">
+        <div class="row">
+            <div class="col-3" style="position: fixed;top: 15%;">
+                <div class="row mb-2 ml-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"> <b>Data Filters:</b></h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><small>Please Check the project github for more deep analytics
+                                and information.</small></h6>
+                            <div>
+                                <label class="mb-0"><b>Job Category:</b></label>
+                                <select class="form-control select2-with-label-single" name="job_category">
+                                    <option value=""></option>
+                                    {% for job_category in job_categories %}
+                                    <option value="{{job_category.name}}" {% if job_category.name == request.GET.job_category %}selected{% endif %}>{{job_category.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <hr />
+                            <div class="mb-2">
+                                <label class="mb-0"><b>Career Level:</b></label>
+                                <select class="form-control select2-with-label-single" name="career_level">
+                                    <option value=""></option>
+                                    <option value="Student (Undergrad / Postgrad)" {% if 'Student (Undergrad / Postgrad)' == request.GET.career_level %}selected{% endif %}>Student (Undergrad / Postgrad)</option>
+                                    <option value="Internship Level" {% if 'Internship Level' == request.GET.career_level %}selected{% endif %}>Internship Level</option>
+                                    <option value="Experienced (Non-Manager)" {% if 'Experienced (Non-Manager)' == request.GET.career_level %}selected{% endif %}>Experienced (Non-Manager)</option>
+                                    <option value="Entry Level (Junior Level / Fresh Grad)" {% if 'Entry Level (Junior Level / Fresh Grad)' == request.GET.career_level %}selected{% endif %}>Entry Level (Junior Level / Fresh Grad)</option>
+                                    <option value="Manager" {% if 'Manager' == request.GET.career_level %}selected{% endif %}>Manager</option>
+                                    <option value="Senior Management (CEO, GM, Director, Head)" {% if 'Senior Management (CEO, GM, Director, Head)' == request.GET.career_level %}selected{% endif %}>Senior Management (CEO, GM, Director, Head)</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label class="mb-0"><b>Education Level:</b></label>
+                                <select class="form-control select2-with-label-single" name="education_level">
+                                    <option value=""></option>
+                                    <option value="High School / Diploma (or equivalent)" {% if 'High School / Diploma (or equivalent)' == request.GET.education_level %}selected{% endif %}>High School / Diploma (or equivalent)</option>
+                                    <option value="Bachelor's Degree" {% if "Bachelor's Degree" == request.GET.education_level %}selected{% endif %}>Bachelor's Degree</option>
+                                    <option value="Master's Degree" {% if "Master's Degree" == request.GET.education_level %}selected{% endif %}>Master's Degree</option>
+                                    <option value="Ph.D" {% if 'Ph.D' == request.GET.education_level %}selected{% endif %}>Ph.D</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label class="mb-0"><b>Experiance Needed:</b></label>
+                                <select class="form-control select2-with-label-single" name="experience_needed">
+                                    <option value=""></option>
+                                    <option value="Min: 0 Max: 1" {% if 'Min: 0 Max: 1' == request.GET.experience_needed %}selected{% endif %}>Min: 0 Max: 1</option>
+                                    <option value="Min: 1 Max: 2" {% if 'Min: 1 Max: 2' == request.GET.experience_needed %}selected{% endif %}>Min: 1 Max: 2</option>
+                                    <option value="Min: 3 Max: 5" {% if 'Min: 3 Max: 5' == request.GET.experience_needed %}selected{% endif %}>Min: 3 Max: 5</option>
+                                    <option value="Min: 7 Max: 10" {% if 'Min: 7 Max: 10' == request.GET.experience_needed %}selected{% endif %}>Min: 7 Max: 10</option>
+                                    <option value="Min: 10 Max: 15" {% if 'Min: 10 Max: 15' == request.GET.experience_needed %}selected{% endif %}>Min: 10 Max: 15</option>
+                                    <option value="Min: 15 Max: 20" {% if 'Min: 15 Max: 20' == request.GET.experience_needed %}selected{% endif %}>Min: 15 Max: 20</option>
+                                    <option value="Min: 20 Max: 25" {% if 'Min: 20 Max: 25' == request.GET.experience_needed %}selected{% endif %}>Min: 20 Max: 25</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label class="mb-0"><b>Gender:</b></label>
+                                <select class="form-control select2-with-label-single" name="gender">
+                                    <option value=""></option>
+                                    <option value="Both" {% if 'Both' == request.GET.gender %}selected{% endif %}>Both</option>
+                                    <option value="Male" {% if 'Male' == request.GET.gender %}selected{% endif %}>Male</option>
+                                    <option value="Female" {% if 'Female' == request.GET.gender %}selected{% endif %}>Female</option>
+                                </select>
+                            </div>
+                            <div class="mt-2 text-right">
+                            <input type="submit" class="btn btn-primary">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row w-100 ml-3">
+                    <div class="card col-9">
+                        <div class="card-body">
+                            <div>
+                                <div class="row">
+                                    <div class="col-3 w-100">
+                                        <a target="_blank" href="https://github.com/ahmedalaatalaat/jobs-data-analysis" style="color:black"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                    <div class="col-3 w-100">
+                                        <a target="_blank" href="https://www.facebook.com/ahmed.alaa.talaat.elkady" style="color:black"><i class="fa-brands fa-facebook"></i></a>
+                                    </div>
+                                    <div class="col-3 w-100">
+                                        <a href="mailto:ahmedalaatalaat@gmail.com" style="color:black"><i class="fa-brands fa-google"></i></a>
+                                    </div>
+                                    <div class="col-3 w-100">
+                                        <a href="tel:+201025641555" style="color:black"><i class="fa-solid fa-phone"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9 offset-3">
+                <div class="row">
+                    <div class="col-12">{{top_15_job_categories|safe}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-6">{{category_level|safe}}</div>
+                    <div class="col-6">{{experience_needed|safe}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-6">{{education_level|safe}}</div>
+                    <div class="col-6">{{gender|safe}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">{{top_10_companies|safe}}</div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
