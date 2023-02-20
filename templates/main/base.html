@@ -61,7 +61,7 @@
                                 </li>
                                 <li><a href="https://github.com/ahmedalaatalaat?tab=repositories"
                                         class="nav-link" target="_blank">Github</a></li>
-                                <li><a href="#contact-section" class="nav-link">Contacts</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#exampleModal"  class="nav-link">Contacts</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -75,6 +75,24 @@
         <div class="site-blocks-cover" style="overflow-x: hidden;">
                 {% block content %}{% endblock content %}
         </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body text-center">
+            <p>Mail: <a href="mailto:ahmedalaatalaat@gmail.com">ahmedalaatalaat@gmail.com</a></p>
+            <p>Phone: <a href="tel:+201025641555">+201025641555</a></p>
+        </div>
+        
+        </div>
+    </div>
     </div>
     <script src="{% static 'main/js/jquery-3.3.1.min.js' %}"></scrip>
     <script src="{% static 'main/js/popper.min.js' %}"></script>
